@@ -1,0 +1,233 @@
+* {
+  box-sizing: border-box;
+}
+
+/* Reset margin and padding, and set the width and height of the page to fill the viewport */
+body,
+html {
+  margin: 0; /* Removes default margin */
+  padding: 0; /* Removes default padding */
+  width: 100%; /* Sets width to full viewport */
+  height: 100%; /* Sets height to full viewport */
+  font-family: Arial, sans-serif; /* Sets default font style */
+
+  overflow-x: hidden;
+  /* overflow: hidden; */
+  overflow: auto;
+  -ms-overflow-style: none; /* IE 11 */
+  scrollbar-width: none; /* Firefox 64 */
+}
+
+/* Main background container */
+.background {
+  /* Sets a solid gray background color behind the image */
+  background-color: #808080;
+
+  /* Sets the background image and its properties */
+  background-image: url("your-image.png"); /* URL of the background image */
+  background-size: cover; /* Scales image to cover entire div, may crop image */
+  background-position: center; /* Centers the image within the div */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+
+  /* Blends the background image with the gray background color to create transparency */
+  background-blend-mode: multiply; /* Blend effect for semi-transparent image */
+
+  /* Makes the div at least the full height of the viewport */
+  min-height: 100vh; /* Ensures background takes up the full screen */
+
+  /* Centers content within the div both vertically and horizontally */
+  display: flex; /* Enables flexbox layout for centering */
+  align-items: center; /* Vertically centers content */
+  justify-content: center; /* Horizontally centers content */
+
+  /* Additional styling for text */
+  text-align: center; /* Centers text inside the div */
+  color: white; /* Sets text color to white for contrast against background */
+  /* padding: 20px; */ /* Adds padding around content inside the div */
+}
+
+iframe {
+  border: none;
+}
+
+.circle-container {
+  display: flex;
+  flex-wrap: wrap; /* Allows circles to wrap to next line */
+}
+
+.circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px; /* Space between circles */
+  border: 3px solid black; /* Black border around each circle */
+  opacity: 70%;
+}
+
+.not_circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px; /* Space between circles */
+  border: 3px solid black; /* Black border around each circle */
+}
+
+:root {
+  --circle-size: 70px;
+  --circle-bg-color: #3498dbb0;
+  --plus-color: white;
+  --plus-size: 25px;
+  --plus-line-width: 4px;
+  --hover-bg-color: #2980b9b0;
+}
+
+.circle-button {
+  width: var(--circle-size);
+  height: var(--circle-size);
+  background-color: var(--circle-bg-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s;
+}
+
+.circle-button::before,
+.circle-button::after {
+  content: "";
+  position: absolute;
+  background-color: var(--plus-color);
+}
+
+.circle-button::before {
+  width: var(--plus-line-width);
+  height: var(--plus-size);
+}
+
+.circle-button::after {
+  width: var(--plus-size);
+  height: var(--plus-line-width);
+}
+
+.circle-button:hover {
+  background-color: var(--hover-bg-color);
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Overlay to darken the background */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+}
+
+/* Popup styling */
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: none;
+  z-index: 10;
+}
+
+.popup h2 {
+  margin-top: 0;
+}
+
+/*.popup label,
+.popup select {
+  display: block;
+  margin: 10px 0;
+}*/
+
+.popup label,
+.popup select,
+.popup input {
+  display: block;
+  margin: 10px 0;
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+.top-right-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 36px;
+  display: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: Arial, sans-serif;
+}
+.div-div {
+  /*background-color: grey;*/
+  /*border-radius: 8px;*/
+  /*color: white;*/
+  /*padding: 2px;*/
+  /*margin: 5px;*/
+  /*cursor: pointer;*/
+  transition: transform 0.1s ease;
+}
+.goal-name {
+  font-size: 24px;
+  padding: 0px;
+  margin: 0px;
+}
+.dragging {
+  opacity: 0.5;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.handle {
+  background-color: #2980b9;
+  padding: 10px;
+  color: white;
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: inline-block;
+  border-radius: 4px;
+  cursor: grab;
+  /*cursor: pointer;*/
+}
+
+.no-select {
+  user-select: none;
+}
+
+.edit-button {
+  padding: 10px;
+  margin-bottom: 5px;
+  border-radius: 4px;
+  /*cursor: pointer;*/
+  display: inline-block;
+}
